@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="bookissue">
+    <complexType>
+     <sequence>
+      <element name="BookName" type="xsd:string"/>
+      <element name="BookId" type="xsd:string"/>
+      <element name="AuthorName" type="xsd:string"/>
+      <element name="IssueDate" type="xsd:string"/>
+      <element name="ReturnDate" type="xsd:string"/>
+      <element name="ApplicantName" type="xsd:string"/>
+      <element name="ApplicantContactNumber" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="bookissueResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="bookissueResponse">
+
+      <wsdl:part element="impl:bookissueResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bookissueRequest">
+
+      <wsdl:part element="impl:bookissue" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="issue_book">
+
+      <wsdl:operation name="bookissue">
+
+         <wsdl:input message="impl:bookissueRequest" name="bookissueRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:bookissueResponse" name="bookissueResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="issue_bookSoapBinding" type="impl:issue_book">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="bookissue">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="bookissueRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="bookissueResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="issue_bookService">
+
+      <wsdl:port binding="impl:issue_bookSoapBinding" name="issue_book">
+
+         <wsdlsoap:address location="http://localhost:8080/library_management_system/services/issue_book"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
