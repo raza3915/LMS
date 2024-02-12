@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="adduser">
+    <complexType>
+     <sequence>
+      <element name="BookName" type="xsd:string"/>
+      <element name="BookId" type="xsd:string"/>
+      <element name="AuthorId" type="xsd:string"/>
+      <element name="AuthorName" type="xsd:string"/>
+      <element name="PublishYear" type="xsd:string"/>
+      <element name="PublisherName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="adduserResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="adduserRequest">
+
+      <wsdl:part element="impl:adduser" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="adduserResponse">
+
+      <wsdl:part element="impl:adduserResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="add_book">
+
+      <wsdl:operation name="adduser">
+
+         <wsdl:input message="impl:adduserRequest" name="adduserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:adduserResponse" name="adduserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="add_bookSoapBinding" type="impl:add_book">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="adduser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="adduserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="adduserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="add_bookService">
+
+      <wsdl:port binding="impl:add_bookSoapBinding" name="add_book">
+
+         <wsdlsoap:address location="http://localhost:8080/library_management_system/services/add_book"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

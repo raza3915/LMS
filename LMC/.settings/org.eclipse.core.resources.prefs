@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//src/main/Add_book.java=UTF-8
+encoding//src/main/Add_bookService.java=UTF-8
+encoding//src/main/Add_bookServiceLocator.java=UTF-8
+encoding//src/main/Add_bookSoapBindingStub.java=UTF-8
+encoding//src/main/Issue_book.java=UTF-8
+encoding//src/main/Issue_bookService.java=UTF-8
+encoding//src/main/Issue_bookServiceLocator.java=UTF-8
+encoding//src/main/Issue_bookSoapBindingStub.java=UTF-8
+encoding//src/main/Return_book.java=UTF-8
+encoding//src/main/Return_bookService.java=UTF-8
+encoding//src/main/Return_bookServiceLocator.java=UTF-8
+encoding//src/main/Return_bookSoapBindingStub.java=UTF-8

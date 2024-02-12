@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="bookreturn">
+    <complexType>
+     <sequence>
+      <element name="BookName" type="xsd:string"/>
+      <element name="BookId" type="xsd:string"/>
+      <element name="ReturnDate" type="xsd:string"/>
+      <element name="ApplicantName" type="xsd:string"/>
+      <element name="ApplicantId" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="bookreturnResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="bookreturnResponse">
+
+      <wsdl:part element="impl:bookreturnResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="bookreturnRequest">
+
+      <wsdl:part element="impl:bookreturn" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="return_book">
+
+      <wsdl:operation name="bookreturn">
+
+         <wsdl:input message="impl:bookreturnRequest" name="bookreturnRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:bookreturnResponse" name="bookreturnResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="return_bookSoapBinding" type="impl:return_book">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="bookreturn">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="bookreturnRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="bookreturnResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="return_bookService">
+
+      <wsdl:port binding="impl:return_bookSoapBinding" name="return_book">
+
+         <wsdlsoap:address location="http://localhost:8080/library_management_system/services/return_book"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
